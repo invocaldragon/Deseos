@@ -59,37 +59,44 @@
   }
 
   /* ✨ Botones */
-  .boton {
-    background: #f4c542;
-    color: #2d2d2d;
-    padding: 12px 26px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 1.2em auto 0.5em;
-    display: inline-block;
-    transition: background 0.25s ease;
-  }
+.boton {
+  background: #f4c542;
+  color: #2d2d2d;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 1.2em auto 0.5em;
+  display: inline-block;
+  width: auto; /* ✅ Evita que se estiren */
+  max-width: 100%;
+  white-space: nowrap;
+  transition: background 0.25s ease;
+}
+
 
   .boton:hover {
     background: #ffe082;
     color: #111;
   }
 
-  .boton-flotante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #f4c542;
-    color: #2d2d2d;
-    padding: 14px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    cursor: pointer;
-  }
+.boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f4c542;
+  color: #2d2d2d;
+  padding: 14px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  width: auto;
+  white-space: nowrap;
+}
+
 
   .boton-flotante:hover {
     background: #ffe082;
@@ -191,17 +198,20 @@
     line-height: 1.5;
   }
 
-  .boton-hero {
-    background: #f4c542;
-    color: #2d2d2d;
-    border: none;
-    font-size: 18px;
-    padding: 14px 30px;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: background 0.3s ease;
-  }
+.boton-hero {
+  background: #f4c542;
+  color: #2d2d2d;
+  border: none;
+  font-size: 18px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+  width: auto; /* ✅ Ajustado al contenido */
+  white-space: nowrap;
+}
+
 
   .boton-hero:hover {
     background: #ffe082;
