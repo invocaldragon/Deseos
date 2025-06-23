@@ -4,263 +4,197 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Deseos</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #fffbe7, #fdfcf6);
+      color: #2d2d2d;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-  <!-- 🎨 Estilos -->
-<style>
-  /* 🌼 Estilo general */
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #fefcf6;
-    color: #2d2d2d;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
+    h1, h2 {
+      font-family: 'EB Garamond', serif;
+      color: #d4a500;
+    }
 
-  h1 {
-    margin-top: 1.2em;
-    font-size: 1.8em;
-    color: #2d2d2d;
-  }
+    h1 {
+      font-size: 2.4em;
+      margin-top: 1em;
+    }
 
-  h2 {
-    margin-top: 2em;
-    font-size: 1.4em;
-    color: #444;
-  }
+    h2 {
+      font-size: 1.6em;
+      margin-top: 2em;
+    }
 
-  /* 📦 Deseo */
-  .deseo {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    margin: 1.5em auto;
-    padding: 1.3em 1.2em;
-    max-width: 500px;
-    transition: 0.3s ease;
-  }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 60px 20px 100px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+    }
 
-  .deseo:hover {
-    transform: scale(1.01);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  }
+    .hero h1 {
+      font-size: 2.8em;
+      color: #ffd700;
+    }
 
-  .votos {
-    font-size: 14px;
-    color: #999;
-    margin-top: 0.4em;
-  }
+    .hero-sub {
+      max-width: 600px;
+      margin: 0 auto 2em;
+      font-size: 1.1em;
+    }
 
-  .alias {
-    margin-top: 0.4em;
-    font-style: italic;
-    font-size: 14px;
-    color: #777;
-  }
+    .boton, .boton-hero {
+      background: #ffd700;
+      color: #2d2d2d;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-  /* ✨ Botones */
-  .boton {
-    background: #f4c542;
-    color: #2d2d2d;
-    padding: 12px 26px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 1.2em auto 0.5em;
-    display: inline-block;
-    transition: background 0.25s ease;
-  }
+    .boton:hover, .boton-hero:hover {
+      background: #fff3a3;
+      transform: scale(1.05);
+    }
 
-  .boton:hover {
-    background: #ffe082;
-    color: #111;
-  }
+    .deseo {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      margin: 2em auto;
+      padding: 1.5em 1.2em;
+      max-width: 600px;
+      position: relative;
+      transition: 0.4s ease;
+    }
 
-  .boton-flotante {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #f4c542;
-    color: #2d2d2d;
-    padding: 14px 20px;
-    border-radius: 30px;
-    font-size: 14px;
-    z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    cursor: pointer;
-  }
+    .deseo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
 
-  .boton-flotante:hover {
-    background: #ffe082;
-    color: #111;
-  }
+    .alias, .votos {
+      font-size: 0.9em;
+      color: #777;
+      margin-top: 0.4em;
+    }
 
-  /* ✍️ Inputs */
-  .campo-texto {
-    width: 85%;
-    padding: 14px;
-    margin-top: 1em;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    background: #fff;
-    color: #333;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
-  }
+    .campo-texto {
+      width: 90%;
+      padding: 16px;
+      margin-top: 1em;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      background: #fff;
+      color: #333;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+    }
 
-  .campo-texto::placeholder {
-    color: #aaa;
-  }
+    .seccion {
+      margin: 3em 1em;
+    }
 
-  /* 📐 Secciones */
-  .seccion {
-    margin: 2.5em 1em;
-  }
+    .boton-flotante {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffd700;
+      color: #2d2d2d;
+      padding: 14px 20px;
+      border-radius: 30px;
+      font-size: 14px;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
 
-  #contador-global {
-    margin-top: 3em;
-    color: #999;
-    font-size: 14px;
-  }
+    footer {
+      font-size: 0.9em;
+      color: #aaa;
+      padding: 3em 1em;
+    }
 
-  footer {
-    font-size: 13px;
-    color: #999;
-    padding: 2em 1em 5em;
-  }
+    footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
 
-  footer a {
-    color: #999;
-    text-decoration: none;
-  }
+    footer a:hover {
+      text-decoration: underline;
+      color: #d4a500;
+    }
 
-  footer a:hover {
-    text-decoration: underline;
-    color: #f4c542;
-  }
+    #contador-global {
+      margin-top: 3em;
+      font-size: 0.9em;
+      color: #999;
+    }
 
-  /* 💫 Pulso temporal (nuevo deseo) */
-  .pulso-temporal {
-    animation: pulsoSuave 1.4s ease-in-out infinite;
-  }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8em; }
+      .hero-sub { font-size: 1em; }
+      .boton, .campo-texto { width: 95%; }
+    }
 
-  @keyframes pulsoSuave {
-    0%   { box-shadow: 0 0 0px rgba(244, 197, 66, 0.2); }
-    50%  { box-shadow: 0 0 16px rgba(244, 197, 66, 0.5); }
-    100% { box-shadow: 0 0 0px rgba(244, 197, 66, 0.2); }
-  }
+    /* 🎇 Nuevo deseo resalta */
+    .pulso-temporal {
+      animation: resplandor 1.8s ease-in-out infinite;
+    }
 
-  /* 🍪 Cookies */
-  #cookieBanner {
-    font-size: 14px;
-    line-height: 1.5;
-    background: #fffaf0;
-    color: #444;
-    border-top: 1px solid #eee;
-  }
-
-  /* 📱 Responsive */
-  @media (max-width: 600px) {
-    h1 { font-size: 1.5em; }
-    h2 { font-size: 1.2em; }
-    .campo-texto { width: 90%; }
-    .boton { width: 90%; }
-    .deseo { margin: 1em 1em; }
-  }
-
-  /* 🌠 Hero */
-  .hero {
-    background: linear-gradient(to bottom, #fffbe7, #fdfcf6);
-    padding: 20px 20px 60px;
-    color: #2d2d2d;
-    text-align: center;
-  }
-
-  .hero h1 {
-    font-size: 2.2em;
-    margin-bottom: 0.4em;
-    color: #f4c542;
-  }
-
-  .hero-sub {
-    font-size: 16px;
-    color: #666;
-    max-width: 500px;
-    margin: 0 auto 1.8em;
-    line-height: 1.5;
-  }
-
-  .boton-hero {
-    background: #f4c542;
-    color: #2d2d2d;
-    border: none;
-    font-size: 18px;
-    padding: 14px 30px;
-    border-radius: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    transition: background 0.3s ease;
-  }
-
-  .boton-hero:hover {
-    background: #ffe082;
-    color: #111;
-  }
-</style>
-
-
+    @keyframes resplandor {
+      0% { box-shadow: 0 0 0px rgba(255, 215, 0, 0.4); }
+      50% { box-shadow: 0 0 18px rgba(255, 215, 0, 0.8); }
+      100% { box-shadow: 0 0 0px rgba(255, 215, 0, 0.4); }
+    }
+  </style>
 </head>
-
 <body>
+  <section class="hero">
+    <h1>🌠 Pide tu deseo</h1>
+    <p class="hero-sub">Miles ya lo hicieron. ¿Qué desea profundamente tu alma hoy?</p>
+    <button class="boton-hero" onclick="irAEscribir()">✨ Escribir mi deseo</button>
+  </section>
 
-<section class="hero">
-  <h1>🌠 Pide tu deseo</h1>
-  <p class="hero-sub">Miles ya lo hicieron. ¿Qué deseas tú profundamente?</p>
-  <button class="boton-hero" onclick="irAEscribir()">✨ Escribir mi deseo</button>
-</section>
-
-
-  <!-- 🌟 Top Semanal -->
-  <h1>🏆 Deseos más votados del mundo esta semana</h1>
+  <h1>🏆 Los deseos que más han brillado esta semana</h1>
   <p style="font-size: 14px; color: #666; margin-top: -10px;">
-    Los deseos que más han tocado corazones. <br>Votados por la comunidad. Firmados por quienes se atrevieron a desear.
+    Los más votados por la comunidad. Déjate inspirar.
   </p>
   <div id="top-semanal" class="seccion"></div>
   <p style="color: #666; font-size: 14px; margin-top: -8px;">
     💫 Este ranking se actualiza con cada voto. ¿Ya diste el tuyo?
   </p>
 
-  <!-- ✍️ Botón de invocación -->
-  <button class="boton" onclick="irAEscribir()">✨ Escribe tu deseo</button>
+  <button class="boton" onclick="irAEscribir()">💫 Escribir mi deseo</button>
 
-  <!-- 📝 Sección: escribir deseo -->
   <div id="seccion-escribir" class="seccion">
     <h2>¿Qué deseas profundamente?</h2>
     <textarea id="deseoInput" class="campo-texto" rows="3" placeholder="Escribe tu deseo aquí..."></textarea><br>
     <input type="text" id="aliasInput" class="campo-texto" placeholder="Tu alias (opcional)"><br>
     <p style="font-size: 13px; color: #777; margin-top: 6px;">
-      Tu alias es opcional. Es como firmar tu deseo. <br>Si lo dejas vacío, será enviado como <strong>“Anónimo”</strong>.
+      Tu alias es opcional. Es como firmar tu deseo. Si lo dejas vacío, será Anónimo.
     </p>
-    <button class="boton" onclick="enviarDeseo()">Enviar mi deseo</button>
+    <button class="boton" onclick="enviarDeseo()">🌟 Enviar deseo</button>
     <div id="resultadoEnvio"></div>
   </div>
 
-  <!-- 🗳️ Sección: votación -->
   <div id="seccion-votar" class="seccion">
-    <h2>Vota por los deseos que te inspiran</h2>
-
-
+    <h2>Vota por los deseos que toquen tu corazón</h2>
     <div id="zonaVotacion"></div>
-
-<button class="boton" onclick="renderVotacion()">🔁 Refrescar lista de deseos</button>
-
+    <button class="boton" onclick="renderVotacion()">🔁 Ver otros deseos</button>
   </div>
 
-  <!-- 📈 Contador total -->
   <div id="contador-global"></div>
-
-  <!-- ✨ Botón flotante -->
   <div class="boton-flotante" onclick="irAEscribir()">✨ Escribir deseo</div>
 
   <footer>
