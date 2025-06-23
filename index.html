@@ -67,20 +67,23 @@
       transform: scale(1.05);
     }
 
-    .boton-votar {
-      background: #ffffff;
-      color: #d4a500;
-      border: 2px solid #d4a500;
-      padding: 12px 24px;
-      border-radius: 25px;
-      font-weight: bold;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
+.boton-votar {
+  background: #e0f7ff;
+  color: #007fa3;
+  border: 2px solid #007fa3;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 127, 163, 0.2);
+}
 
-    .boton-votar:hover {
-      background: #d4a500;
-      color: #fff;
-    }
+.boton-votar:hover {
+  background: #007fa3;
+  color: #fff;
+  transform: scale(1.05);
+}
+
 
     .deseo {
       background: white;
@@ -206,7 +209,7 @@
   <div id="seccion-votar" class="seccion">
     <h2>Vota por los deseos que toquen tu corazón</h2>
     <div id="zonaVotacion"></div>
-    <button class="boton" onclick="renderVotacion()">🔁 Ver otros deseos</button>
+    <button class="boton-votar" onclick="renderVotacion()">🔁 Ver otros deseos</button>
   </div>
 
   <div id="contador-global"></div>
