@@ -7,11 +7,11 @@
 
   <!-- 🎨 Estilos -->
 <style>
-  /* 🎨 Reset general y tipografía */
+  /* 🌼 Estilo general */
   body {
     font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    color: #222;
+    background: #fefcf6;
+    color: #2d2d2d;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -20,48 +20,48 @@
   h1 {
     margin-top: 1.2em;
     font-size: 1.8em;
-    color: #111;
+    color: #2d2d2d;
   }
 
   h2 {
     margin-top: 2em;
     font-size: 1.4em;
-    color: #222;
+    color: #444;
   }
 
   /* 📦 Deseo */
   .deseo {
     background: white;
     border-radius: 16px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     margin: 1.5em auto;
-    padding: 1.2em;
+    padding: 1.3em 1.2em;
     max-width: 500px;
     transition: 0.3s ease;
   }
 
   .deseo:hover {
     transform: scale(1.01);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   }
 
   .votos {
     font-size: 14px;
-    color: #888;
-    margin-top: 0.3em;
+    color: #999;
+    margin-top: 0.4em;
   }
 
   .alias {
     margin-top: 0.4em;
     font-style: italic;
     font-size: 14px;
-    color: #666;
+    color: #777;
   }
 
   /* ✨ Botones */
   .boton {
-    background: #111;
-    color: white;
+    background: #f4c542;
+    color: #2d2d2d;
     padding: 12px 26px;
     border: none;
     border-radius: 30px;
@@ -69,25 +69,31 @@
     cursor: pointer;
     margin: 1.2em auto 0.5em;
     display: inline-block;
-    transition: all 0.25s ease;
+    transition: background 0.25s ease;
   }
 
   .boton:hover {
-    background: #444;
+    background: #ffe082;
+    color: #111;
   }
 
   .boton-flotante {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #222;
-    color: white;
+    background: #f4c542;
+    color: #2d2d2d;
     padding: 14px 20px;
     border-radius: 30px;
     font-size: 14px;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     cursor: pointer;
+  }
+
+  .boton-flotante:hover {
+    background: #ffe082;
+    color: #111;
   }
 
   /* ✍️ Inputs */
@@ -98,7 +104,13 @@
     border-radius: 10px;
     border: 1px solid #ccc;
     font-size: 16px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    background: #fff;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+  }
+
+  .campo-texto::placeholder {
+    color: #aaa;
   }
 
   /* 📐 Secciones */
@@ -108,7 +120,7 @@
 
   #contador-global {
     margin-top: 3em;
-    color: #888;
+    color: #999;
     font-size: 14px;
   }
 
@@ -119,29 +131,33 @@
   }
 
   footer a {
-    color: #666;
+    color: #999;
     text-decoration: none;
   }
 
   footer a:hover {
     text-decoration: underline;
+    color: #f4c542;
   }
 
-  /* 💫 Pulso temporal (para nuevo deseo) */
+  /* 💫 Pulso temporal (nuevo deseo) */
   .pulso-temporal {
     animation: pulsoSuave 1.4s ease-in-out infinite;
   }
 
   @keyframes pulsoSuave {
-    0% { box-shadow: 0 0 0px rgba(46, 204, 113, 0.2); }
-    50% { box-shadow: 0 0 16px rgba(46, 204, 113, 0.45); }
-    100% { box-shadow: 0 0 0px rgba(46, 204, 113, 0.2); }
+    0%   { box-shadow: 0 0 0px rgba(244, 197, 66, 0.2); }
+    50%  { box-shadow: 0 0 16px rgba(244, 197, 66, 0.5); }
+    100% { box-shadow: 0 0 0px rgba(244, 197, 66, 0.2); }
   }
 
-  /* 🍪 Banner cookies */
+  /* 🍪 Cookies */
   #cookieBanner {
     font-size: 14px;
     line-height: 1.5;
+    background: #fffaf0;
+    color: #444;
+    border-top: 1px solid #eee;
   }
 
   /* 📱 Responsive */
@@ -153,45 +169,46 @@
     .deseo { margin: 1em 1em; }
   }
 
-.hero {
-  padding: 20px 20px 60px;
-  background: linear-gradient(to bottom, #111, #222);
-  color: white;
-  text-align: center;
-}
+  /* 🌠 Hero */
+  .hero {
+    background: linear-gradient(to bottom, #fffbe7, #fdfcf6);
+    padding: 80px 20px 60px;
+    color: #2d2d2d;
+    text-align: center;
+  }
 
-.hero h1 {
-  font-size: 2.2em;
-  margin-bottom: 0.4em;
-  color: #ffd700;
-}
+  .hero h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.4em;
+    color: #f4c542;
+  }
 
-.hero-sub {
-  font-size: 16px;
-  color: #ccc;
-  max-width: 500px;
-  margin: 0 auto 1.8em;
-  line-height: 1.5;
-}
+  .hero-sub {
+    font-size: 16px;
+    color: #666;
+    max-width: 500px;
+    margin: 0 auto 1.8em;
+    line-height: 1.5;
+  }
 
-.boton-hero {
-  background: #ffd700;
-  color: #111;
-  border: none;
-  font-size: 18px;
-  padding: 14px 30px;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
-}
+  .boton-hero {
+    background: #f4c542;
+    color: #2d2d2d;
+    border: none;
+    font-size: 18px;
+    padding: 14px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: background 0.3s ease;
+  }
 
-.boton-hero:hover {
-  background: #ffea5a;
-}
-
-
+  .boton-hero:hover {
+    background: #ffe082;
+    color: #111;
+  }
 </style>
+
 
 </head>
 
