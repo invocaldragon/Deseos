@@ -528,7 +528,7 @@ canvas {
                 <p class="donation-text" style="font-family: 'Poppins', sans-serif; font-size: 13px;">⛔ Si hozas continuar sin ofrendar,<br>tu deseo se desvanecerá para siempre.</p>
                 <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/QR.jpg" alt="QR de Yape" class="qr-yape">
             </div>
-            <button2 id="Regresar3Button" class="button--final-action">Continuar</button2>
+            <button2 id="Regresar3Button" class="button--final-action">Invocar a Shenlong</button2>
 
         </div>
     </div>
@@ -601,6 +601,32 @@ canvas {
         closePopup('popup-wish');       // Cierra el actual
         openPopup('popup-shenlong-reply');              // Abre el siguiente popup
     });
+  
+    document.getElementById("Compartir").addEventListener('click', async () => {
+        const shareData = {
+            title: "¡He invocado a Shenlong!",
+            text: "He pedido mi deseo al dragón eterno. ¿Te atreves tú también?",
+            url: window.location.href // Comparte la URL actual
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+                console.log("Compartido con éxito");
+            } catch (err) {
+                console.warn("El usuario canceló el compartir o hubo un error:", err);
+            }
+        } else {
+            // Fallback: copiar al portapapeles
+            try {
+                await navigator.clipboard.writeText(shareData.url);
+                alert("Tu enlace se copió al portapapeles. ¡Compártelo con tus amigos!");
+            } catch (err) {
+                alert("No se pudo copiar automáticamente. Copia el enlace manualmente: " + shareData.url);
+            }
+        }
+    });  
+  
   
 </script>
 
