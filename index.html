@@ -501,12 +501,13 @@ canvas {
 </head>
 <body>
 
-<h2 class="title--mystic">Tu aporte voluntario</h2>
-
-<img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/sheng1.png" alt="Invocación Shenlong" class="shenlong-static">
-  
-<h2 class="title--mystic">Cumplirá tu deseo</h2>
-  
+    <div class="container container--game-section">
+        <h2 class="title--mystic">Tu aporte voluntario</h2>
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/sheng1.png" alt="Invocación Shenlong" class="shenlong-static">
+        <h2 class="title--mystic">Cumplirá tu deseo</h2>
+        <button id="SubirDeseoButton">Continuar</button>
+    </div>
+    
     <div class="legal-notice">
         <strong>Aviso Legal:</strong>
         <p>
@@ -519,16 +520,26 @@ canvas {
         </p>
     </div>
 
+    <div id="popup-SubirDeseo" class="popup-overlay">
+        <div class="popup-container2">
+            <h7 id="codigoSupremoDisplay" class="final-message-title"></h7>
+            <h6 class="final-message-title">¡ Humano enviame tu ofrenda para ser digno de escuchar tu deseo !</h6>
+            <div class="donation-section">
+                <p class="donation-text" style="font-family: 'Poppins', sans-serif; font-size: 13px;">⛔ Si hozas continuar sin ofrendar,<br>tu deseo se desvanecerá para siempre.</p>
+                <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/QR.jpg" alt="QR de Yape" class="qr-yape">
+            </div>
+            <button2 id="Regresar3Button" class="button--final-action">Continuar</button2>
+
+        </div>
+    </div>
+  
     <div id="popup-wish" class="popup-overlay">
         <div class="popup-container">
-            <img src="Invocacion2.gif" alt="Invocación Shenlong" class="shenlong-gif">
+            <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/Invocacion2.gif" alt="Invocación Shenlong" class="shenlong-gif">
             <h4>Mortal, pídeme tu deseo<br>Tengo prisa...</h4>
             <div id="countdown">60</div>
-
             <input type="text" id="userAliasInput" placeholder="Tu nombre (opcional)" aria-label="Escribe tu alias místico">
-            
             <textarea id="userWishInput" class="campo-deseo" rows="2" placeholder="Tu deseo..." aria-label="Escribe tu deseo"></textarea>
-            
             <button id="submitWishButton">Pedir Deseo</button>
         </div>
     </div>
@@ -537,609 +548,62 @@ canvas {
 
     <div id="popup-shenlong-reply" class="popup-overlay">
         <div class="popup-container">
-            <img src="sheng1.png" alt="Invocación Shenlong" class="shenlong-static">
+            <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/sheng1.png" alt="Invocación Shenlong" class="shenlong-static">
             <h3>Ese será un deseo muy fácil de realizar...</h3>
             <p id="fullPhraseText" class="shenlong-phrase"></p>
 
             <p style="font-size: 14px; margin-top: -5px;">El dragón nunca olvida a quien invoca con el corazón firme</p>
             
             <div class="dragon-ball-divider">
-              <img src="esfera1.png" class="dragon-ball" alt="Esfera 1">
-              <img src="esfera2.png" class="dragon-ball" alt="Esfera 2">
-              <img src="esfera3.png" class="dragon-ball" alt="Esfera 3">
-              <img src="esfera4.png" class="dragon-ball" alt="Esfera 4">
-              <img src="esfera5.png" class="dragon-ball" alt="Esfera 5">
-              <img src="esfera6.png" class="dragon-ball" alt="Esfera 6">
-              <img src="esfera7.png" class="dragon-ball" alt="Esfera 7">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera1.png" class="dragon-ball" alt="Esfera 1">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera2.png" class="dragon-ball" alt="Esfera 2">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera3.png" class="dragon-ball" alt="Esfera 3">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera4.png" class="dragon-ball" alt="Esfera 4">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera5.png" class="dragon-ball" alt="Esfera 5">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera6.png" class="dragon-ball" alt="Esfera 6">
+              <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera7.png" class="dragon-ball" alt="Esfera 7">
             </div>
                 
-            <button id="SubirDeseoButton">Continuar</button>
-            <button id="continueToFormButton">🙏 No</button>
-        </div>
-    </div>
-
-    <div id="popup-final" class="popup-overlay">
-        <div class="popup-container">
-            <h3 class="final-message-title">🏆 Top Semanal de Deseos 🏆</h3>
-              <ul class="top-deseos-lista">
-                <li><strong>🥇</strong> Conseguir mi primer depa sola<span class="mistico-nombre"> – Tania</span><span class="contador-votos">🌟 173 votos</span></li>
-                <li><strong>🥈</strong> Salir de deudas este año<span class="mistico-nombre"> – Javi</span><span class="contador-votos">🌟 164 votos</span></li>
-                <li><strong>🥉</strong> Ser parte de algo bonito<span class="mistico-nombre"> – Gabo</span><span class="contador-votos">🌟 157 votos</span></li>
-              </ul>
-            <p class="nota-mistica">Este ranking se actualiza todos los lunes<br>¡Vota por tu favorito!</p>
-            <button id="VotarDeseoButton" class="button--final-action">🌟 Votar</button>
-            <button id="DeseoSupremoButton" class="button--final-action" style="display: none;">🏆 Top Deseos Supremos</button>
-            <button id="shareWhatsappButton" class="button--final-action" style="display: none;">📲 Compartir</button>
-            <button id="invokeAgainButton" class="button--final-action" style="display: none;">🔁 Volver a invocar</button>
-            <button id="Regresar4Button" class="button--final-action">🔮 Mi deseo</button>
-
-        </div>
-    </div>
-
-    <div id="popup-DeseoSupremo" class="popup-overlay">
-        <div class="popup-container">
-            <h3 class="final-message-title">Vota por el Deseo Supremo de la Semana 🏆</h3>
-            <img src="TopDeseos.png" alt="QR de Yape" class="qr-yape">
-            <button id="VotarDeseoButton" class="button--final-action">Votar por un deseo</button>
-            <button id="SubirDeseo2Button" class="button--final-action">Subir mi Deseo Supremo</button>
-            <button id="RegresarButton" class="button--final-action">Regresar</button>
-
-        </div>
-    </div>
-
-    <div id="popup-VotarDeseo" class="popup-overlay">
-        <div class="popup-container">
-            <div id="loadingSpinner" class="loading-overlay">
-                <div class="spinner"></div>
-            </div>    
-            <h3 class="final-message-title">¡ Votar por un Deseo Supremo !</h3>
-              <div id="countdown2">Cambiando en: 15 segundos</div>
-              <form id="votacionDeseos">
-                <div id="contenedor-deseos"></div>
-                <button type="submit" id="votarBtn">Votar por este deseo</button>
-              </form>
-            <button id="Regresar2Button" class="button--final-action" style="display: none;">Regresar</button>
-
+            <button id="Compartir">Compartir</button>
         </div>
     </div>
 
 
-    <div id="popup-SubirDeseo" class="popup-overlay">
-        <div class="popup-container2">
-            <h7 id="codigoSupremoDisplay" class="final-message-title"></h7>
-            <h6 class="final-message-title">¡ Shenlong concede deseos antes a quien invoca con más fuerza !</h6>
-            <div class="donation-section">
-                <p class="donation-text" style="font-family: 'Poppins', sans-serif; font-size: 13px;">Usa Yape y escribe tu CÓDIGO SUPREMO en el mensaje<br>Dale valor con tu aporte voluntario</p>
-                <img src="QR.jpg" alt="QR de Yape" class="qr-yape">
-            </div>
-            <button2 id="Regresar3Button" class="button--final-action">Continuar</button2>
 
-        </div>
-    </div>
+<script>
+    // Código supremo simulado (usa tu generador real)
+    let codigoSupremoGenerado = "ABC123";
 
-
-    <script>
-
-// Constants
-const SPHERE_RADIUS = 30;
-const MARGIN = 2;
-const GOOGLE_SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyqFM_rdkLidWzz2sf71eAJxh3KQWNUOm7kNgjCGx0QgFtfXTco0P2WO5JjCLajz5Wz/exec';
-
-// DOM Elements
-const gameCanvas = document.getElementById("gameCanvas");
-const ctx = gameCanvas.getContext("2d");
-const instructionsElement = document.getElementById("instructions");
-const countdownElement = document.getElementById("countdown");
-const userWishInput = document.getElementById("userWishInput");
-const userAliasInput = document.getElementById("userAliasInput"); // AÑADIDO: Referencia al campo de alias
-const fullPhraseText = document.getElementById("fullPhraseText");
-
-// Popups
-const popupWish = document.getElementById("popup-wish");
-const popupShenlongReply = document.getElementById("popup-shenlong-reply");
-const popupFinal = document.getElementById("popup-final");
-const popupDeseoSupremo = document.getElementById("popup-DeseoSupremo");
-const popupVotarDeseo = document.getElementById("popup-VotarDeseo");
-const popupSubirDeseo = document.getElementById("popup-SubirDeseo");
-
-// Buttons
-const submitWishButton = document.getElementById("submitWishButton");
-const continueToFormButton = document.getElementById("continueToFormButton");
-const shareWhatsappButton = document.getElementById("shareWhatsappButton");
-const invokeAgainButton = document.getElementById("invokeAgainButton");
-const DeseoSupremoButton = document.getElementById("DeseoSupremoButton");
-const VotarDeseoButton = document.getElementById("VotarDeseoButton");
-const SubirDeseoButton = document.getElementById("SubirDeseoButton");
-const RegresarButton = document.getElementById("RegresarButton");
-const Regresar2Button = document.getElementById("Regresar2Button");
-const Regresar3Button = document.getElementById("Regresar3Button");
-const Regresar4Button = document.getElementById("Regresar4Button");
-
-// Audio
-const sphere7Audio = new Audio('quienmehallamado.mp3');
-const sphere8Audio = new Audio('deseofacil.mp3');
-
-// Game State Variables
-let speedMultiplier = 2.5;
-let currentStep = 1;
-let spheres = [];
-let countdownInterval;
-let userWish = "";
-let userAlias = "";
-let codigoSupremoGenerado = ""; // NUEVO: Variable para guardar el código
-
-// --- NUEVO: Función para generar el Código Supremo ---
-function generarCodigoSupremo() {
-    const prefijo = 'SH';
-    // Genera un número aleatorio entre 100 y 999
-    const numero = Math.floor(Math.random() * 900) + 100;
-    return `${prefijo}-${numero}`;
-}
-        
-// Image Preloading
-const images = [];
-for (let i = 1; i <= 7; i++) {
-    const img = new Image();
-    img.src = `esfera${i}.png`;
-    images.push(img);
-}
-
-// --- DragonBall Class ---
-class DragonBall {
-    constructor(x, y, number) {
-        this.x = x;
-        this.y = y;
-        const angle = Math.random() * 2 * Math.PI;
-        this.vx = Math.cos(angle);
-        this.vy = Math.sin(angle);
-        this.number = number;
-        this.radius = SPHERE_RADIUS;
-        this.found = false;
-        this.image = images[number - 1];
+    // Función para abrir un popup
+    function openPopup(popupId) {
+        document.getElementById(popupId).style.display = 'block';
     }
 
-    update() {
-        if (this.found) return;
-
-        this.x += this.vx * speedMultiplier;
-        this.y += this.vy * speedMultiplier;
-
-        // Boundary collision detection
-        const leftLimit = this.radius + MARGIN;
-        const rightLimit = gameCanvas.width - this.radius - MARGIN;
-        const topLimit = this.radius + MARGIN;
-        const bottomLimit = gameCanvas.height - this.radius - MARGIN;
-
-        if (this.x < leftLimit) { this.x = leftLimit; this.vx *= -1; }
-        if (this.x > rightLimit) { this.x = rightLimit; this.vx *= -1; }
-        if (this.y < topLimit) { this.y = topLimit; this.vy *= -1; }
-        if (this.y > bottomLimit) { this.y = bottomLimit; this.vy *= -1; }
+    // Función para cerrar un popup
+    function closePopup(popupId) {
+        document.getElementById(popupId).style.display = 'none';
     }
 
-    draw() {
-        if (this.found) {
-            ctx.save();
-            ctx.shadowColor = '#ffff00';
-            ctx.shadowBlur = 30;
-        }
-        ctx.drawImage(this.image, this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
-        if (this.found) {
-            ctx.restore();
-        }
-    }
-
-    isInside(mx, my) {
-        return Math.hypot(mx - this.x, my - this.y) <= this.radius;
-    }
-}
-
-// --- Game Functions ---
-function generateSpheres() {
-    const newSpheres = [];
-    for (let i = 1; i <= 7; i++) {
-        let valid = false, x, y;
-        while (!valid) {
-            x = Math.random() * (gameCanvas.width - 2 * (SPHERE_RADIUS + MARGIN)) + (SPHERE_RADIUS + MARGIN);
-            y = Math.random() * (gameCanvas.height - 2 * (SPHERE_RADIUS + MARGIN)) + (SPHERE_RADIUS + MARGIN);
-            valid = true;
-            for (const s of newSpheres) {
-                if (Math.hypot(s.x - x, s.y - y) < SPHERE_RADIUS * 2 + 4) {
-                    valid = false;
-                    break;
-                }
-            }
-        }
-        newSpheres.push(new DragonBall(x, y, i));
-    }
-    return newSpheres;
-}
-
-function drawAll() {
-    ctx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
-    for (const s of spheres) {
-        s.update();
-        s.draw();
-    }
-    requestAnimationFrame(drawAll);
-}
-
-function resetGame() {
-    currentStep = 1;
-    spheres = generateSpheres();
-    instructionsElement.textContent = "Que poder te representa...";
-}
-
-function setSpeed(factor) {
-    speedMultiplier = factor;
-    for (const s of spheres) {
-        if (!s.found) {
-            const angle = Math.atan2(s.vy, s.vx);
-            s.vx = Math.cos(angle);
-            s.vy = Math.sin(angle);
-        }
-    }
-}
-
-// --- Popup Management ---
-function openPopup(popupElement) {
-    [popupWish, popupShenlongReply, popupFinal, popupDeseoSupremo, popupVotarDeseo, popupSubirDeseo].forEach(p => p.style.display = 'none');
-    popupElement.style.display = 'flex';
-}
-
-function closePopup(popupElement) {
-    popupElement.style.display = 'none';
-}
-
-// --- Data Submission ---
-async function sendToGoogleSheets(data) {
-    const params = new URLSearchParams(data).toString();
-    try {
-        await fetch(GOOGLE_SHEETS_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: params
-        });
-        console.log("Data sent to Google Sheets successfully (no-cors mode).");
-    } catch (error) {
-        console.error("Error sending data to Google Sheets:", error);
-    }
-}
-
-// --- Event Handlers ---
-
-// Game Canvas Click
-gameCanvas.addEventListener("click", e => {
-    const rect = gameCanvas.getBoundingClientRect();
-    const mx = e.clientX - rect.left;
-    const my = e.clientY - rect.top;
-
-    for (const s of spheres) {
-        if (!s.found && s.isInside(mx, my)) {
-            s.found = true;
-            s.vx = 0; 
-            s.vy = 0;
-
-            // Mostrar cuántas faltan
-            const restantes = spheres.filter(s => !s.found).length;
-            if (restantes > 0) {
-                instructionsElement.textContent = `Faltan ${restantes} esfera${restantes === 1 ? '' : 's'} y el deseo será tuyo`;
-            } else {
-                instructionsElement.textContent = "¡Has reunido todas las esferas del dragón!";
-                sphere7Audio.play().catch(err => console.error("Error playing audio:", err));
-                openPopup(popupWish);
-
-                let countdownValue = 60;
-                countdownElement.innerText = countdownValue;
-                countdownInterval = setInterval(() => {
-                    countdownValue--;
-                    countdownElement.innerText = countdownValue;
-                    if (countdownValue <= 0) {
-                        clearInterval(countdownInterval);
-                        closePopup(popupWish);
-                        location.reload();
-                    }
-                }, 1000);
-            }
-            break;
-        }
-    }
-});
-
-
-    // MODIFICADO: El listener del botón para pedir el deseo ahora genera y guarda el código
-    document.getElementById("submitWishButton").addEventListener('click', () => {
-        const alias = userAliasInput.value.trim() || "Anónimo";
-        const wish = userWishInput.value.trim();
-
-        if (!wish) { alert("Escribe tu deseo."); return; }
-
-        userAlias = alias;
-        userWish = wish;
-        
-        // NUEVO: Generamos y guardamos el código en este momento
-        codigoSupremoGenerado = generarCodigoSupremo();
-
-        // MODIFICADO: Enviamos el nuevo código a Google Sheets
-        sendToGoogleSheets({ 
-            alias: userAlias, 
-            deseo: userWish, 
-            codigo: codigoSupremoGenerado // Enviamos el código
-        });
-
-
-    closePopup(popupWish);
-    clearInterval(countdownInterval);
-    sphere7Audio.pause();
-    sphere8Audio.play().catch(err => console.error("Error playing audio:", err));
-    fullPhraseText.innerHTML = `<em>“${userWish}”</em>`;
-    openPopup(popupShenlongReply);
-});
-
-// Continue to Form Button -> Now goes to Final Popup
-continueToFormButton.addEventListener('click', () => {
-    closePopup(popupShenlongReply);
-    openPopup(popupFinal);
-});
-
-// Share on WhatsApp Button
-shareWhatsappButton.addEventListener('click', () => {
-    const mensaje = "*Acabo de pedirle un deseo a Shenlong 🐉👇*\nhttps://invocaldragon.github.io/Shenlong\n\n*¡Apresúrate!*\nQuizá te comparta un poco de mi suerte🍀";
-    const whatsappURL = "https://wa.me/?text=" + encodeURIComponent(mensaje);
-    window.open(whatsappURL, "_blank");
-});
-
-// Invoke Again Button
-invokeAgainButton.addEventListener('click', () => {
-    userWish = ""; 
-    userAlias = ""; // AÑADIDO: Resetea el alias
-    userWishInput.value = "";
-    userAliasInput.value = ""; // AÑADIDO: Limpia el campo de alias
-    
-    [popupWish, popupShenlongReply, popupFinal, popupDeseoSupremo, popupVotarDeseo, popupSubirDeseo].forEach(p => p.style.display = 'none');
-    location.reload();
-});
-
-function resizeCanvas() {
-    const rect = gameCanvas.getBoundingClientRect();
-    gameCanvas.width = rect.width;
-    gameCanvas.height = rect.height;
-}
-
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
-
-DeseoSupremoButton.addEventListener("click", () => {
-    closePopup(popupFinal);
-    openPopup(popupDeseoSupremo);
-});
-
-VotarDeseoButton.addEventListener("click", () => {
-    closePopup(popupDeseoSupremo);
-    openPopup(popupVotarDeseo);
-});
-    // MODIFICADO: Ahora mostramos el código generado antes de abrir el popup
+    // Evento para abrir el primer popup
     document.getElementById("SubirDeseoButton").addEventListener('click', () => {
-        // NUEVO: Asignamos el código generado al elemento HTML
         document.getElementById('codigoSupremoDisplay').textContent = `Código Supremo: ${codigoSupremoGenerado}`;
-        openPopup(popupSubirDeseo);
+        openPopup('popup-SubirDeseo');
     });
-RegresarButton.addEventListener("click", () => {
-    closePopup(popupDeseoSupremo);
-    openPopup(popupFinal);
-});
 
-Regresar2Button.addEventListener("click", () => {
-    closePopup(popupVotarDeseo);
-    openPopup(popupFinal);
-});
-
-Regresar3Button.addEventListener("click", () => {
-    closePopup(popupSubirDeseo);
-    openPopup(popupFinal);
-});
-Regresar4Button.addEventListener("click", () => {
-    if (!userWish || userWish.trim() === "") {
-        location.reload();
-    } else {
-        closePopup(popupFinal);
-        openPopup(popupShenlongReply);
-    }
-});
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape") {
-        const visiblePopup = [popupWish, popupShenlongReply, popupFinal, popupDeseoSupremo, popupVotarDeseo, popupSubirDeseo].find(p => p.style.display === 'flex');
-        if (visiblePopup) {
-            closePopup(visiblePopup);
-            clearInterval(countdownInterval);
-        }
-    }
-});
-
-Promise.all(images.map(img => new Promise(res => img.onload = res)))
-    .then(startGame)
-    .catch(err => console.error("Failed to load one or more sphere images:", err));
-
-function startGame() {
-    resetGame();
-    drawAll();
-}
-
-function verTopDeseos() {
-  const allPopups = document.querySelectorAll('.popup-overlay');
-  allPopups.forEach(popup => {
-    popup.style.display = 'none';
-  });
-  const popupFinal = document.getElementById('popup-final');
-  if (popupFinal) {
-    popupFinal.style.display = 'flex';
-  }
-}
-
-// --- Lógica para la Votación de Deseos Supremos ---
-
-// Referencias a los elementos del DOM para la votación
-const contenedorDeseos = document.getElementById('contenedor-deseos');
-const countdownVotacion = document.getElementById('countdown2');
-const formVotacion = document.getElementById('votacionDeseos');
-
-let intervaloVotacion;
-let listaCompletaDeseos = []; // Almacenará los deseos cargados desde la hoja
-
-/**
- * Función principal para cargar los deseos desde Google Sheets.
- */
-async function cargarDeseosSupremos() {
-  try {
-    // Hacemos una petición GET a la URL de nuestro script.
-    // fetch() por defecto usa el método GET, así que activará la función doGet.
-    const response = await fetch(GOOGLE_SHEETS_SCRIPT_URL);
-    if (!response.ok) {
-      throw new Error('Error al conectar con el Oráculo de los Deseos. Código: ' + response.status);
-    }
-    
-    const deseos = await response.json();
-    
-    if (deseos.result === 'error') {
-        throw new Error(deseos.error);
-    }
-
-    listaCompletaDeseos = deseos; // Guardamos la lista completa
-    
-    // Si se cargan deseos, iniciamos el proceso de votación.
-    if (listaCompletaDeseos.length > 0) {
-      iniciarCicloDeVotacion();
-    } else {
-      contenedorDeseos.innerHTML = "<p>El Oráculo está en silencio... No hay deseos supremos para votar en este momento.</p>";
-    }
-
-  } catch (error) {
-    console.error("Error al cargar los Deseos Supremos:", error);
-    contenedorDeseos.innerHTML = `<p>Hubo un problema al contactar al Oráculo. Inténtalo de nuevo más tarde.</p>`;
-  }
-}
-
-/**
- * Inicia y reinicia el temporizador y la muestra de deseos.
- */
-function iniciarCicloDeVotacion() {
-  mostrarNuevosDeseos(); // Muestra el primer set de deseos
+    // Evento para pasar al siguiente popup y cerrar el actual
+    document.getElementById("Regresar3Button").addEventListener('click', () => {
+        closePopup('popup-SubirDeseo');       // Cierra el actual
+        openPopup('popup-wish');              // Abre el siguiente popup
+    });
   
-  let tiempo = 15;
-  countdownVotacion.textContent = `Cambiando en: ${tiempo} segundos`;
-
-  clearInterval(intervaloVotacion); // Limpia cualquier temporizador anterior
-  intervaloVotacion = setInterval(() => {
-    tiempo--;
-    countdownVotacion.textContent = `Cambiando en: ${tiempo} segundos`;
-    if (tiempo <= 0) {
-      tiempo = 15; // Reinicia el contador
-      mostrarNuevosDeseos(); // Muestra nuevos deseos
-    }
-  }, 1000);
-}
-
-/**
- * Selecciona 3 deseos aleatorios de la lista completa y los muestra.
- */
-function mostrarNuevosDeseos() {
-  const copiaDeseos = [...listaCompletaDeseos];
-  const elegidos = [];
-
-  // Elige hasta 3 deseos aleatorios
-  const cantidadAMostrar = Math.min(3, copiaDeseos.length);
-
-  for (let i = 0; i < cantidadAMostrar; i++) {
-    const index = Math.floor(Math.random() * copiaDeseos.length);
-    elegidos.push(copiaDeseos.splice(index, 1)[0]);
-  }
-
-  // Genera el HTML para los deseos elegidos
-  if (elegidos.length > 0) {
-        contenedorDeseos.innerHTML = elegidos.map(d =>
-          `<label class="deseo">
-            <div class="radio-container">
-              <input type="radio" name="deseoSeleccionado" value="${d.id}">
-            </div>
-            <div class="texto-nombre">
-              <div class="texto">“${d.texto}”</div>
-              <div class="nombre">– ${d.nombre}</div>
-              <div class="votos" style="font-size: 12px; color: #ccc;">🌟 Votos: ${d.votos || 0}</div>
-            </div>
-          </label>`
-        ).join('');
-
-  } else if (listaCompletaDeseos.length > 0) {
-      // Si hay deseos pero no se pudieron elegir (caso raro)
-      contenedorDeseos.innerHTML = "<p>Mezclando las energías de los deseos...</p>";
-  }
-}
-
-// Evento para manejar el envío del voto
-formVotacion.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const seleccionado = formVotacion.deseoSeleccionado?.value;
-
-  // AÑADIDO: Obtenemos la referencia al spinner
-  const loadingSpinner = document.getElementById('loadingSpinner');
-
-  if (!seleccionado) {
-    alert('Por favor, selecciona un deseo antes de votar.');
-    return;
-  }
-
-  // AÑADIDO: Mostramos el spinner
-  loadingSpinner.style.display = 'flex';
-    
-  const scriptURLVoto = 'https://script.google.com/macros/s/AKfycbyqFM_rdkLidWzz2sf71eAJxh3KQWNUOm7kNgjCGx0QgFtfXTco0P2WO5JjCLajz5Wz/exec';
-  const data = new FormData();
-  data.append('desireId', seleccionado);
-
-  fetch(scriptURLVoto, {
-    method: 'POST',
-    body: data
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`Error de red: ${response.status} ${response.statusText}`);
-    }
-    return response.json();
-  })
-  .then(result => {
-    if (result.result === 'success') {
-      // 1. Mensaje opcional (si quieres dejarlo)
-      alert(`🌟 Has votado por el deseo #${seleccionado}. ¡Gracias por tu energía!`);
-
-      // 2. Cierra el popup actual (votación)
-      closePopup(popupVotarDeseo);
-
-      // 3. Abre el popup final
-      openPopup(popupFinal);
-
-      // 4. Opcional: recarga los deseos por si quieres que se actualicen los votos
-      cargarDeseosSupremos();
-    } else {
-      alert(`❌ Hubo un error al registrar tu voto: ${result.error}`);
-      console.error('Error del servidor:', result.error);
-    }
-  })
-  .catch(error => {
-    console.error('Error al enviar el voto:', error);
-    alert('⚠️ Hubo un problema al conectar con el servicio de votación.');
-  })
-  .finally(() => {
-    // AÑADIDO: Ocultamos el spinner sin importar el resultado
-    loadingSpinner.style.display = 'none';
-  });
-});
-        
-        
-        
-// --- INICIALIZACIÓN ---
-// En lugar de llamar a las funciones directamente, llamamos a la función que carga los datos.
-cargarDeseosSupremos();
-        
+      // Evento para pasar al siguiente popup y cerrar el actual
+    document.getElementById("submitWishButton").addEventListener('click', () => {
+        closePopup('popup-wish');       // Cierra el actual
+        openPopup('popup-shenlong-reply');              // Abre el siguiente popup
+    });
+  
 </script>
+
+
 </body>
 </html>
