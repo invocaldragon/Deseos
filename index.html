@@ -18,496 +18,243 @@
     <meta name="twitter:image" content="https://invocaldragon.github.io/Shenlong/esfera4.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
 
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QXXD7B7STE"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-QXXD7B7STE');
     </script>
 
     <style>
+        /* General Styles */
+        body, html {
+            font-family: 'Cinzel Decorative', cursive;
+            line-height: 1.6;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-#continueToFormButton {
-    display: none;
-}
+        /* Base element styles */
+        h2 { color: #ffcc00; }
+        h3 { color: #00ff88; font-size: 18px; margin-bottom: 10px; }
+
+        h4 { color: #00ff88; font-size: 18px; margin-bottom: 10px; }
+
+        h6 { color: #CDA74B; font-size: 18px; margin-bottom: 0px; margin-top: 10px;  }    
+
+        h7 { color: #0be803; font-size: 16px; margin-bottom: 5px; margin-top: 20px; }      
+        p { color: #fff; }
+
+        /* Form Elements */
+        input[type="text"], textarea {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            padding: 10px;
+            width: 90%;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: 1px solid #00ff88;
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+        textarea::placeholder, input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Buttons */
+        .button {
+            border: none;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s ease;
+            font-family: 'Cinzel Decorative', cursive;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            min-height: 45px;
+            width: 90%;
+            max-width: 300px;
+        }
+
+        .button--green {
+            background: linear-gradient(135deg, #00ff88, #006644);
+        }
+        .button--green:hover {
+            background: linear-gradient(135deg, #00ffcc, #004422);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        .button--gold {
+            background: linear-gradient(135deg, #CDA74B, #826A34);
+            margin-top: 10px;
+        }
+        .button--gold:hover {
+            background: linear-gradient(135deg, #826A34, #CDA74B);
+            transform: scale(1.05);
+            box-shadow: 0 0 10px gold;
+        }
         
-/* Import Custom Font */
-@font-face {
-    font-family: 'CinzelDecorative-Bold'; /* Choose a name for your font */
-    src: url('CinzelDecorative-Bold.ttf') format('truetype'); /* Specify the path to your font file and its format */
-    font-weight: normal;
-    font-style: normal;
-}
+        /* Layout Containers */
+        .container {
+            text-align: center;
+            max-width: 100%;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
 
-/* General Styles */
-body, html {
-    font-family: 'CinzelDecorative-Bold', cursive;
-    line-height: 1.6; /* Increased general line height for better readability */
-    background: #000;
-    color: #fff;
-    overflow-x: hidden; /* Prevent horizontal scroll from animations */
-}
+        .legal-notice {
+            font-size: 10px;
+            color: #aaa;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: left;
+        }
 
-/* Base element styles */
-h2 { color: #ffcc00; }
-h3 { color: #00ff88; font-size: 18px; margin-bottom: 10px; }
-h4 { color: #00ff88; font-size: 18px; margin-bottom: 10px; }
-h5 { color: #ffffff; font-size: 18px; margin-bottom: 10px; }
-h6 { color: #CDA74B; font-size: 18px; margin-bottom: 0px; margin-top: 10px;  }    
-h7 { color: #0be803; font-size: 16px; margin-bottom: 5px; margin-top: 20px; }            
-p { color: #fff; }
+        /* Popup Overlays */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-container {
+            animation: fadeInMagic 0.8s ease-out;
+            box-shadow: 0 0 20px #00ff88aa;
+            background: #111;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            margin: 0 auto;
+        }
 
-/* Form Elements */
-input[type="text"], select, textarea {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    padding: 10px 10px;
-    width: 90%;
-    border-radius: 6px;
-    margin-top: 10px;
-    font-size: 16px;
-    border: 1px solid #00ff88;
-    background-color: #0a0a0a;
-    color: #fff;
-}
-textarea::placeholder, input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
+        /* Animations */
+        @keyframes fadeInMagic {
+            0% {opacity: 0; transform: scale(0.9); filter: blur(5px);}
+            100% {opacity: 1; transform: scale(1); filter: blur(0);}
+        }
 
-/* Buttons */
-button {
-    background: linear-gradient(135deg, #00ff88, #006644);
-    border: none;
-    color: #fff;
-    padding: 10px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.3s ease;
-    font-family: 'CinzelDecorative-Bold', cursive;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    min-height: 45px;
-}
-
-button:hover {
-    background: linear-gradient(135deg, #00ffcc, #004422);
-    transform: scale(1.05);
-    box-shadow: 0 0 10px #00ffcc;
-}
-
-button2 {
-    background: linear-gradient(135deg, #CDA74B, #826A34);
-    border: none;
-    color: #fff;
-    padding: 10px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.3s ease;
-    font-family: 'CinzelDecorative-Bold', cursive;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    min-height: 45px;
-}
-
-button2:hover {
-    background: linear-gradient(135deg, #826A34, #CDA74B);
-    transform: scale(1.05);
-    box-shadow: 0 0 10px gold;
-}
+        /* Specific Image Styles & Animations */
+        .qr-yape {
+            max-width: 250px;
+            margin: 20px auto 30px auto;
+            display: block;
+            border-radius: 20px;
+            animation: resplandor-yape 3s infinite ease-in-out;
+            filter: drop-shadow(0 0 10px #CDA74B) drop-shadow(0 0 20px #826A34);
+        }
+        @keyframes resplandor-yape {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px #CDA74B) drop-shadow(0 0 20px #826A34);
+            }
+            50% {
+                filter: drop-shadow(0 0 20px #826A34) drop-shadow(0 0 35px #CDA74B);
+            }
+        }
         
-/* Layout Containers */
-.container {
-    text-align: center;
-    max-width: 100%;
-    padding: 20px;
-    margin-top: 20px;  
-    margin-bottom: 20px;
-}
+        .shenlong-static {
+            display: block;
+            max-width: 80%;
+            height: auto;
+            margin: 30px auto 0 auto;
+            animation: aparecer 2s ease-out forwards, resplandor-mistico 3s infinite ease-in-out, flotar 4s ease-in-out infinite;
+        }
+        @keyframes resplandor-mistico {
+            0%, 100% {
+                filter: drop-shadow(0 0 15px #00ffcc) drop-shadow(0 0 25px #00ffcc);
+            }
+            50% {
+                filter: drop-shadow(0 0 25px #00ffcc) drop-shadow(0 0 40px #00ffcc);
+            }
+        }
 
-.container--game-section {
-    background-color: transparent;
-    box-shadow: none;
-}
+        .shenlong-gif {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #00ffcc;
+            animation: aparecer 2s ease-out forwards, resplandor-mistico 1s infinite ease-in-out;
+        }
 
-.legal-notice {
-    font-size: 10px;
-    color: #aaa;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    margin: 40px auto;
-    max-width: 600px;
-    text-align: left;
-}
+        /* Other Specific Styles */
+        .title--mystic {
+            color: #0be803;
+            text-align: center;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .shenlong-phrase {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .donation-text {
+            font-size: 13px;
+        }
 
-/* Game Canvas */
-canvas {
-    width: 100%;
-    height: 450px;
-    display: block;
-    margin: 0 auto;
-    background-color: #000;
-    border: 3px solid #ff9800;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+        /* Keyframes */
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-/* Popup Overlays */
-.popup-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    z-index: 999;
-    display: none;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-container {
-    animation: fadeInMagic 0.8s ease-out;
-    box-shadow: 0 0 20px #00ff88aa;
-    background: #111;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    margin: 0 auto;
-    position: relative; /* <-- AÑADIDO: Permite posicionar el spinner dentro */
-}
-
-/* ESTILOS AÑADIDOS: Inicio de los estilos para el Spinner de Carga */
-.loading-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(17, 17, 17, 0.85); /* Fondo oscuro para atenuar el contenido */
-    z-index: 10;
-    display: none; /* Oculto por defecto */
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px; /* Coincide con el radio del popup */
-}
-
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.3); /* Color base del círculo */
-    border-top-color: #00ff88; /* Color de la parte que gira */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-        
-.popup-container2 {
-    animation: fadeInMagic 0.8s ease-out;
-    box-shadow: 0 0 20px gold;
-    background: #111;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 400px;
-    width: 90%;
-    margin: 0 auto;
-}
-        
-/* Animations */
-@keyframes fadeInMagic {
-    0% {opacity: 0; transform: scale(0.9); filter: blur(5px);}
-    100% {opacity: 1; transform: scale(1); filter: blur(0);}
-}
-
-/* Specific Image Styles & Animations */
-.qr-yape {
-    max-width: 250px;
-    margin: 20px auto;
-    display: block;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    animation: resplandor-yape 3s infinite ease-in-out;
-    filter: drop-shadow(0 0 10px #CDA74B) drop-shadow(0 0 20px #826A34);
-}
-
-@keyframes resplandor-yape {
-    0%, 100% {
-        filter: drop-shadow(0 0 10px #CDA74B) drop-shadow(0 0 20px #826A34);
-    }
-    50% {
-        filter: drop-shadow(0 0 20px #826A34) drop-shadow(0 0 35px #CDA74B);
-    }
-}
-
-.shenlong-static {
-    display: block;
-    max-width: 80%;
-    height: auto;
-    margin: 30px auto 0 auto; /* auto a izquierda y derecha la centra */
-    animation: aparecer 2s ease-out forwards, 
-               resplandor-mistico 3s infinite ease-in-out, 
-               flotar 4s ease-in-out infinite;
-}
-
-      
-@keyframes resplandor-mistico {
-    0%, 100% {
-        filter: drop-shadow(0 0 15px #00ffcc) drop-shadow(0 0 25px #00ffcc);
-    }
-    50% {
-        filter: drop-shadow(0 0 25px #00ffcc) drop-shadow(0 0 40px #00ffcc);
-    }
-}
-
-.shenlong-gif {
-    display: block;
-    margin: 20px auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 20px #00ffcc;
-    animation: aparecer 2s ease-out forwards, resplandor-mistico 1s infinite ease-in-out;
-}
-
-/* Specific Button Styles */
-.button--final-action {
-    margin-bottom: 10px;
-    width: 90%;
-    max-width: 300px;
-}
-
-/* Other Specific Styles */
-.title--mystic {
-    color: #0be803;
-    text-align: center;
-}
-
-.instructions { }
-
-.countdown {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.shenlong-phrase {
-    font-size: 20px;
-    margin: 20px 0;
-}
-
-.donation-section {
-    margin-top: 20px;
-}
-
-.donation-text {
-    font-size: 0.8em;
-}
-
-/* Keyframes */
-@keyframes aparecer {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes flotar {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-.speed-selection-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  flex-wrap: nowrap;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-  .speed-text,
-  .speed-controls {
-    flex: 1 1 100%;
-  }
-
-.speed-controls label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#barra-top-supremos {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(90deg, #086d03, #0be803);
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-size: 12px;
-  font-weight: regular;
-  z-index: 9999;
-  cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-  transition: background 0.3s;
-}
-
-#barra-top-supremos:hover {
-  background: linear-gradient(90deg, #0be803, #086d03);
-}
-
-.linea-divisoria {
-  border: none;
-  border-top: 1px solid #0be803;
-  margin: 1.5rem auto; /* Centrada horizontalmente */
-  width: 80%;
-  opacity: 0.8;
-}
-
-
-.top-deseos-lista {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.top-deseos-lista li {
-  margin-bottom: 12px;
-  font-size: 16px;
-  color: #fff;
-  position: relative;
-  padding-left: 10px;
-}
-
-.mistico-nombre {
-  display: block;
-  font-size: 13px;
-  color: #00ffcc;
-  margin-top: 4px;
-  margin-left: 10px;
-}
-
-.nota-mistica {
-  font-size: 13px;
-  color: #aaa;
-  margin-top: 15px;
-  text-align: center;
-}
-
-.deseo {
-  background: linear-gradient(135deg, #1e1e1e, #2e2e2e);
-  border: 1px solid #444;
-  border-radius: 10px;
-  padding: 15px;
-  margin: 10px auto;
-  max-width: 500px;
-  box-shadow: 0 0 10px #00ff88;
-  transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.deseo {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  justify-content: flex-start;
-  padding: 15px;
-}
-
-.texto-nombre {
-  text-align: left;
-  max-width: 80%;
-}
-
-.nombre {
-  font-size: 13px;
-  color: #ffcc00;
-}
-
-.texto {
-  font-size: 15px;
-}
-
-.radio-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.speed-controls-images {
-  text-align: center;
-  margin: 20px 0;
-}
-.speed-controls-images img {
-  width: 130px;
-  margin: 0 15px;
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  transition: transform 0.3s, border-color 0.3s;
-}
-.speed-controls-images img:hover {
-  transform: scale(1.5);
-  border-color: gold;
-}
-
-  .dragon-ball-divider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 40px; /* 👈 Espacio debajo de las esferas */
-  }
-
-  .dragon-ball {
-    width: 40px;
-    margin: 0 2px;
-    animation: spin 20s linear infinite;
-    transform-origin: center center;
-  }
-
-  @keyframes spin {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  @media (max-width: 600px) {
-    .dragon-ball {
-      width: 30px;
-    }
-  }
-
-
-        
-</style>
+        .dragon-ball-divider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .dragon-ball {
+            width: 40px;
+            margin: 0 2px;
+            animation: spin 20s linear infinite;
+            transform-origin: center center;
+        }
+        @media (max-width: 600px) {
+            .dragon-ball {
+                width: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container container--game-section">
+    <div class="container">
         <h2 class="title--mystic">Tu aporte voluntario</h2>
         <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/sheng1.png" alt="Invocación Shenlong" class="shenlong-static">
         <h2 class="title--mystic">Cumplirá tu deseo</h2>
-        <button id="SubirDeseoButton">Continuar</button>
+        <button id="donationButton" class="button button--green">Continuar</button>
     </div>
-    
+
     <div class="legal-notice">
         <strong>Aviso Legal:</strong>
         <p>
@@ -520,38 +267,33 @@ canvas {
         </p>
     </div>
 
-    <div id="popup-SubirDeseo" class="popup-overlay">
-        <div class="popup-container2">
-            <h7 id="codigoSupremoDisplay" class="final-message-title"></h7>
-            <h6 class="final-message-title">¡ Humano enviame tu ofrenda para ser digno de escuchar tu deseo !</h6>
+    <div id="popup-donation" class="popup-overlay">
+        <div class="popup-container" style="box-shadow: 0 0 20px gold;">
+            <h7 id="codigoSupremoDisplay"></h7>
+            <h6>¡ Humano, enviame tu ofrenda para ser digno de escuchar tu deseo !</h6>
             <div class="donation-section">
-                <p class="donation-text" style="font-family: 'Poppins', sans-serif; font-size: 13px;">⛔ Si hozas continuar sin ofrendar,<br>tu deseo se desvanecerá para siempre.</p>
+                <p class="donation-text" style="font-family: 'Poppins', sans-serif;">⛔ Si hozas continuar sin ofrendar,<br>tu deseo se desvanecerá para siempre.</p>
                 <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/QR.jpg" alt="QR de Yape" class="qr-yape">
             </div>
-            <button2 id="Regresar3Button" class="button--final-action">Invocar a Shenlong</button2>
-
+            <button id="openWishFormButton" class="button button--gold">Invocar a Shenlong</button>
         </div>
     </div>
-  
+    
     <div id="popup-wish" class="popup-overlay">
         <div class="popup-container">
             <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/Invocacion2.gif" alt="Invocación Shenlong" class="shenlong-gif">
             <h4>Mortal, pídeme tu deseo<br>Tengo prisa...</h4>
-            <div id="countdown">60</div>
             <input type="text" id="userAliasInput" placeholder="Tu nombre (opcional)" aria-label="Escribe tu alias místico">
-            <textarea id="userWishInput" class="campo-deseo" rows="2" placeholder="Tu deseo..." aria-label="Escribe tu deseo"></textarea>
-            <button id="submitWishButton">Pedir Deseo</button>
+            <textarea id="userWishInput" rows="2" placeholder="Tu deseo..." aria-label="Escribe tu deseo"></textarea>
+            <button id="submitWishButton" class="button button--green">Pedir Deseo</button>
         </div>
     </div>
-  
-  
-
+    
     <div id="popup-shenlong-reply" class="popup-overlay">
         <div class="popup-container">
             <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/sheng1.png" alt="Invocación Shenlong" class="shenlong-static">
             <h3>Ese será un deseo muy fácil de realizar...</h3>
             <p id="fullPhraseText" class="shenlong-phrase"></p>
-
             <p style="font-size: 14px; margin-top: -5px;">El dragón nunca olvida a quien invoca con el corazón firme</p>
             
             <div class="dragon-ball-divider">
@@ -563,20 +305,38 @@ canvas {
               <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera6.png" class="dragon-ball" alt="Esfera 6">
               <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera7.png" class="dragon-ball" alt="Esfera 7">
             </div>
-                
-            <button id="Compartir">Compartir</button>
+            
+            <button id="Compartir" class="button button--green">Compartir</button>
         </div>
     </div>
 
-
-
 <script>
-    // Código supremo simulado (usa tu generador real)
-    let codigoSupremoGenerado = "ABC123";
+    // Función para generar un código alfanumérico con el formato LLLNNN
+    function generarCodigoSupremo() {
+        const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const numeros = '0123456789';
+        let codigoLetras = '';
+        let codigoNumeros = '';
+
+        // Genera 3 letras aleatorias
+        for (let i = 0; i < 3; i++) {
+            codigoLetras += letras.charAt(Math.floor(Math.random() * letras.length));
+        }
+
+        // Genera 3 números aleatorios
+        for (let i = 0; i < 3; i++) {
+            codigoNumeros += numeros.charAt(Math.floor(Math.random() * numeros.length));
+        }
+
+        return codigoLetras + codigoNumeros;
+    }
+
+    // Genera el código supremo cuando la página se carga
+    let codigoSupremoGenerado = generarCodigoSupremo();
 
     // Función para abrir un popup
     function openPopup(popupId) {
-        document.getElementById(popupId).style.display = 'block';
+        document.getElementById(popupId).style.display = 'flex';
     }
 
     // Función para cerrar un popup
@@ -584,29 +344,31 @@ canvas {
         document.getElementById(popupId).style.display = 'none';
     }
 
-    // Evento para abrir el primer popup
-    document.getElementById("SubirDeseoButton").addEventListener('click', () => {
+    // Evento para abrir el popup de donación
+    document.getElementById("donationButton").addEventListener('click', () => {
+        // Muestra el código generado en el elemento con el id 'codigoSupremoDisplay'
         document.getElementById('codigoSupremoDisplay').textContent = `Código Supremo: ${codigoSupremoGenerado}`;
-        openPopup('popup-SubirDeseo');
+        openPopup('popup-donation');
     });
 
-    // Evento para pasar al siguiente popup y cerrar el actual
-    document.getElementById("Regresar3Button").addEventListener('click', () => {
-        closePopup('popup-SubirDeseo');       // Cierra el actual
-        openPopup('popup-wish');              // Abre el siguiente popup
+    // Evento para pasar del popup de donación al de deseo
+    document.getElementById("openWishFormButton").addEventListener('click', () => {
+        closePopup('popup-donation');
+        openPopup('popup-wish');
     });
-  
-      // Evento para pasar al siguiente popup y cerrar el actual
+    
+    // Evento para pasar del popup de deseo al de respuesta de Shenlong
     document.getElementById("submitWishButton").addEventListener('click', () => {
-        closePopup('popup-wish');       // Cierra el actual
-        openPopup('popup-shenlong-reply');              // Abre el siguiente popup
+        closePopup('popup-wish');
+        openPopup('popup-shenlong-reply');
     });
-  
+    
+    // Evento para compartir
     document.getElementById("Compartir").addEventListener('click', async () => {
         const shareData = {
             title: "¡He invocado a Shenlong!",
             text: "He pedido mi deseo al dragón eterno. ¿Te atreves tú también?",
-            url: window.location.href // Comparte la URL actual
+            url: window.location.href
         };
 
         if (navigator.share) {
@@ -617,7 +379,6 @@ canvas {
                 console.warn("El usuario canceló el compartir o hubo un error:", err);
             }
         } else {
-            // Fallback: copiar al portapapeles
             try {
                 await navigator.clipboard.writeText(shareData.url);
                 alert("Tu enlace se copió al portapapeles. ¡Compártelo con tus amigos!");
@@ -625,11 +386,7 @@ canvas {
                 alert("No se pudo copiar automáticamente. Copia el enlace manualmente: " + shareData.url);
             }
         }
-    });  
-  
-  
+    });
 </script>
-
-
 </body>
 </html>
