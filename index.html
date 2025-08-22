@@ -244,6 +244,44 @@
                 width: 30px;
             }
         }
+      
+      
+      /* ... Tus estilos existentes ... */
+
+    #dragonBallCircle {
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+
+    .spinning-ball {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        opacity: 0; /* Por defecto, las esferas están ocultas */
+        animation: orbit 5s linear infinite forwards, fadeIn 0.5s ease-in forwards;
+        transform-origin: 75px 75px;
+    }
+
+    @keyframes orbit {
+        from { transform: rotate(0deg) translateX(75px) rotate(0deg); }
+        to { transform: rotate(360deg) translateX(75px) rotate(-360deg); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Posicionamiento y retraso de cada esfera */
+    .ball-1 { animation-delay: 0s, 0s; transform: rotate(0deg) translateX(75px) rotate(0deg); }
+    .ball-2 { animation-delay: 0.3s, 0.3s; transform: rotate(51.4deg) translateX(75px) rotate(-51.4deg); }
+    .ball-3 { animation-delay: 0.6s, 0.6s; transform: rotate(102.8deg) translateX(75px) rotate(-102.8deg); }
+    .ball-4 { animation-delay: 0.9s, 0.9s; transform: rotate(154.2deg) translateX(75px) rotate(-154.2deg); }
+    .ball-5 { animation-delay: 1.2s, 1.2s; transform: rotate(205.6deg) translateX(75px) rotate(-205.6deg); }
+    .ball-6 { animation-delay: 1.5s, 1.5s; transform: rotate(257deg) translateX(75px) rotate(-257deg); }
+    .ball-7 { animation-delay: 1.8s, 1.8s; transform: rotate(308.4deg) translateX(75px) rotate(-308.4deg); }
+
     </style>
 </head>
 <body>
@@ -285,8 +323,9 @@
             <h4>Mortal, pídeme tu deseo<br>Tengo prisa...</h4>
             <input type="text" id="userAliasInput" placeholder="Tu nombre (opcional)" aria-label="Escribe tu alias místico">
             <textarea id="userWishInput" rows="2" placeholder="Tu deseo..." aria-label="Escribe tu deseo"></textarea>
-            <button id="submitWishButton" class="button button--green">Pedir Deseo</button>
-        </div>
+            <button id="submitWishButton" class="button button--green">Pedir Deseo</button>   
+      </div>
+      
     </div>
     
     <div id="popup-shenlong-reply" class="popup-overlay">
@@ -310,6 +349,21 @@
         </div>
     </div>
 
+<div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 9998;"></div>  
+  
+<div id="loadingIndicator" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+    <div id="dragonBallCircle">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera1.png" class="spinning-ball ball-1" alt="Esfera 1">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera2.png" class="spinning-ball ball-2" alt="Esfera 2">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera3.png" class="spinning-ball ball-3" alt="Esfera 3">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera4.png" class="spinning-ball ball-4" alt="Esfera 4">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera5.png" class="spinning-ball ball-5" alt="Esfera 5">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera6.png" class="spinning-ball ball-6" alt="Esfera 6">
+        <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera7.png" class="spinning-ball ball-7" alt="Esfera 7">
+    </div>
+</div>
+  
+  
 <script>
     // URL de la aplicación web que acabas de desplegar
     const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbySssFLsrL38PFEk0OYwZlzZd8VYID1pFlw2wuyegF6uyPuZKp68cD5meDun5SzKJdlrA/exec";
@@ -352,6 +406,9 @@
     });
     
 document.getElementById("submitWishButton").addEventListener('click', async () => {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+
     const nombre = document.getElementById('userAliasInput').value || 'Anónimo';
     const deseo = document.getElementById('userWishInput').value;
     const codigo = codigoSupremoGenerado;
@@ -367,17 +424,28 @@ document.getElementById("submitWishButton").addEventListener('click', async () =
         codigo: codigo
     };
 
-    // Construimos la URL con los parámetros para la solicitud GET
     const url = GOOGLE_APPS_SCRIPT_URL + "?" + new URLSearchParams(data).toString();
 
+    // 1. Mostrar el overlay y el indicador de carga
+    loadingOverlay.style.display = 'block';
+    loadingIndicator.style.display = 'block';
+
     try {
-        await fetch(url); // Ahora el fetch es una solicitud GET simple
+        await fetch(url);
         
+        // 2. Ocultar el overlay y el indicador si la solicitud fue exitosa
+        loadingOverlay.style.display = 'none';
+        loadingIndicator.style.display = 'none';
+
         closePopup('popup-wish');
         openPopup('popup-shenlong-reply');
         console.log('Datos enviados correctamente.');
 
     } catch (error) {
+        // 3. Ocultar el overlay y el indicador si hubo un error
+        loadingOverlay.style.display = 'none';
+        loadingIndicator.style.display = 'none';
+
         alert('¡Oh no! Algo salió mal y el dragón no escuchó tu deseo.');
         console.error('Error al enviar los datos:', error);
     }
