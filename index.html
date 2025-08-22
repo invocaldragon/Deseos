@@ -306,24 +306,24 @@
               <img src="https://raw.githubusercontent.com/invocaldragon/shenlong/PRUEBAS/esfera7.png" class="dragon-ball" alt="Esfera 7">
             </div>
             
-            <button id="Compartir" class="button button--green">Compartir</button>
+          <button id="Compartir" class="button button--green">Compartir</button>
         </div>
     </div>
 
 <script>
-    // Función para generar un código alfanumérico con el formato LLLNNN
+    // URL de la aplicación web que acabas de desplegar
+    const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbySssFLsrL38PFEk0OYwZlzZd8VYID1pFlw2wuyegF6uyPuZKp68cD5meDun5SzKJdlrA/exec";
+
     function generarCodigoSupremo() {
         const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const numeros = '0123456789';
         let codigoLetras = '';
         let codigoNumeros = '';
 
-        // Genera 3 letras aleatorias
         for (let i = 0; i < 3; i++) {
             codigoLetras += letras.charAt(Math.floor(Math.random() * letras.length));
         }
 
-        // Genera 3 números aleatorios
         for (let i = 0; i < 3; i++) {
             codigoNumeros += numeros.charAt(Math.floor(Math.random() * numeros.length));
         }
@@ -331,39 +331,58 @@
         return codigoLetras + codigoNumeros;
     }
 
-    // Genera el código supremo cuando la página se carga
     let codigoSupremoGenerado = generarCodigoSupremo();
 
-    // Función para abrir un popup
     function openPopup(popupId) {
         document.getElementById(popupId).style.display = 'flex';
     }
 
-    // Función para cerrar un popup
     function closePopup(popupId) {
         document.getElementById(popupId).style.display = 'none';
     }
 
-    // Evento para abrir el popup de donación
     document.getElementById("donationButton").addEventListener('click', () => {
-        // Muestra el código generado en el elemento con el id 'codigoSupremoDisplay'
         document.getElementById('codigoSupremoDisplay').textContent = `Código Supremo: ${codigoSupremoGenerado}`;
         openPopup('popup-donation');
     });
 
-    // Evento para pasar del popup de donación al de deseo
     document.getElementById("openWishFormButton").addEventListener('click', () => {
         closePopup('popup-donation');
         openPopup('popup-wish');
     });
     
-    // Evento para pasar del popup de deseo al de respuesta de Shenlong
-    document.getElementById("submitWishButton").addEventListener('click', () => {
+document.getElementById("submitWishButton").addEventListener('click', async () => {
+    const nombre = document.getElementById('userAliasInput').value || 'Anónimo';
+    const deseo = document.getElementById('userWishInput').value;
+    const codigo = codigoSupremoGenerado;
+
+    if (deseo.trim() === '') {
+        alert('¡El dragón necesita saber tu deseo!');
+        return;
+    }
+
+    const data = {
+        nombre: nombre,
+        deseo: deseo,
+        codigo: codigo
+    };
+
+    // Construimos la URL con los parámetros para la solicitud GET
+    const url = GOOGLE_APPS_SCRIPT_URL + "?" + new URLSearchParams(data).toString();
+
+    try {
+        await fetch(url); // Ahora el fetch es una solicitud GET simple
+        
         closePopup('popup-wish');
         openPopup('popup-shenlong-reply');
-    });
+        console.log('Datos enviados correctamente.');
+
+    } catch (error) {
+        alert('¡Oh no! Algo salió mal y el dragón no escuchó tu deseo.');
+        console.error('Error al enviar los datos:', error);
+    }
+});
     
-    // Evento para compartir
     document.getElementById("Compartir").addEventListener('click', async () => {
         const shareData = {
             title: "¡He invocado a Shenlong!",
